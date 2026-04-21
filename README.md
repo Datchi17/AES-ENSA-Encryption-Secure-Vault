@@ -1,89 +1,154 @@
-🔐 VaultGCSE2 — Secure Digital Vault
+# 🔐 Mini Crypto Project — AES-ENSA, RSA & Secure Vault
 
-A hybrid cryptographic system that combines a custom AES variant (AES-ENSA) with RSA-2048 and HMAC-SHA256 to securely encrypt and protect files.
+## 📌 Overview
 
-This project demonstrates practical cryptography concepts including symmetric encryption, asymmetric encryption, integrity verification, and avalanche effect testing.
+This project is a practical implementation of fundamental cryptographic concepts, combining:
 
-📌 Features
-🔑 Hybrid Encryption
-AES-ENSA (custom AES-128 variant) for fast data encryption
-RSA-2048 for secure key exchange
-🛡️ Integrity Protection
-HMAC-SHA256 ensures data authenticity and tamper detection
-📦 Custom Secure File Format (.vault)
-Structured encrypted container
-📊 Avalanche Effect Testing
-Measures cryptographic strength
-⚙️ Command-Line Interface (CLI)
-🏗️ Project Structure
+* A **custom AES-128 variant (AES-ENSA)**
+* An **RSA encryption module**
+* A **secure vault system for data protection**
+* An **avalanche effect analysis tool**
+
+It is designed for educational purposes to understand how modern cryptographic systems work internally.
+
+---
+
+## ⚙️ Features
+
+### 🔸 1. AES-ENSA (Custom AES Variant)
+
+* AES-128 inspired implementation
+* Uses a **custom affine S-Box**:
+  [
+  f(x) = (a \cdot x + b) \mod 256
+  ]
+* Parameters `a` and `b` are derived from a student ID
+* Demonstrates how substitution layers impact security
+
+---
+
+### 🔸 2. RSA Module
+
+* Public/Private key generation
+* Encryption & decryption functions
+* Demonstrates asymmetric cryptography principles
+
+---
+
+### 🔸 3. Secure Vault
+
+* Stores sensitive data securely
+* Uses encryption to protect stored content
+* Combines AES and RSA concepts
+
+---
+
+### 🔸 4. Avalanche Effect Analysis
+
+* Measures how small input changes affect output
+* Evaluates cryptographic strength
+* Outputs results in:
+
+  * `avalanche_results.txt`
+  * `trace_test.txt`
+
+---
+
+## 📁 Project Structure
+
+```
 miniprojet2crypto/
 │
-├── vault.py                # Main CLI application
-├── aes_ensa.py            # Custom AES implementation
-├── rsa_module.py          # RSA implementation (from scratch)
-├── avalanche_test.py      # Avalanche effect testing
-├── avalanche_results.txt  # Test results
-├── trace_test.txt         # Debug/trace logs
-├── rapport_technique.pdf  # Technical report
-🔐 Encryption Architecture
+├── aes_ensa.py              # Custom AES implementation
+├── rsa_module.py           # RSA encryption module
+├── vault.py                # Secure vault system
+├── avalanche_test.py       # Avalanche effect testing
+│
+├── avalanche_results.txt   # Test results
+├── trace_test.txt          # Execution trace
+│
+└── rapport_technique.pdf   # Technical report
+```
 
-The .vault file format:
+---
 
-┌──────────────────────────────────────────┐
-│ Header  (256 bytes) : AES key encrypted  │
-│                        with RSA          │
-│ IV      (16 bytes)  : Initialization     │
-│ Payload (variable)  : AES-CBC encrypted  │
-│ Footer  (32 bytes) : HMAC-SHA256         │
-└──────────────────────────────────────────┘
-🚀 Installation
-Requirements
-Python 3.x
-Clone or extract the project:
-unzip miniprojet2crypto.zip
-cd miniprojet2crypto
-⚙️ Usage
-1. Generate RSA Keys
-python vault.py keygen
-2. Encrypt a File
-python vault.py encrypt file.txt --pub public.key
+## 🚀 How to Use
 
-Output:
+### 1️⃣ Clone the repository
 
-file.txt.vault
-3. Decrypt a File
-python vault.py decrypt file.txt.vault --priv private.key
-🔬 AES-ENSA Customization
+```bash
+git clone https://github.com/your-username/mini-crypto-project.git
+cd mini-crypto-project
+```
 
-The AES variant uses a custom S-Box based on:
+### 2️⃣ Run AES module
 
-f(x) = (a * x + b) mod 256
+```bash
+python aes_ensa.py
+```
 
-Modify in aes_ensa.py:
+### 3️⃣ Run RSA module
 
+```bash
+python rsa_module.py
+```
+
+### 4️⃣ Test Avalanche Effect
+
+```bash
+python avalanche_test.py
+```
+
+---
+
+## ⚠️ Important Configuration
+
+Inside `aes_ensa.py`, update:
+
+```python
 MATRICULE_A = 2
 MATRICULE_B = 3
+```
 
-⚠️ Notes:
+➡️ These values must match your **student ID digits**
+➡️ `a` must be **odd** to ensure a valid permutation
 
-a must be odd to ensure bijection
-Values are based on student ID (matricule)
-📊 Avalanche Effect Testing
+---
 
-Run:
+## 📊 Educational Objectives
 
-python avalanche_test.py
+This project helps understand:
 
-Results are stored in:
+* Symmetric encryption (AES)
+* Asymmetric encryption (RSA)
+* Substitution & permutation principles
+* Cryptographic strength evaluation (avalanche effect)
 
-avalanche_results.txt
+---
 
-This evaluates how small input changes affect output — a key property of secure cryptographic systems.
+## 📄 Documentation
 
-🧠 Key Concepts Demonstrated
-Symmetric Encryption (AES-CBC)
-Asymmetric Encryption (RSA)
-Key Exchange
-Message Authentication Codes (HMAC)
-Secure File Design
-Cryptographic Testing (Avalanche Effect)
+For detailed explanations, refer to:
+
+📘 `rapport_technique.pdf`
+
+---
+
+## 🛠️ Technologies Used
+
+* Python 3
+* Standard libraries only (no external dependencies)
+
+---
+
+## 👤 Author
+
+* Datchi*
+
+
+
+If you want, I can also:
+
+* make it more **cybersecurity-professional (GitHub portfolio ready)**
+* add **badges (build, license, Python version)**
+* or rewrite it in **clean English for international recruiters** 🚀
