@@ -143,12 +143,5 @@ For detailed explanations, refer to:
 
 ## 👤 Author
 
-* Datchi*
+* Datchi
 
-
-
-If you want, I can also:
-
-* make it more **cybersecurity-professional (GitHub portfolio ready)**
-* add **badges (build, license, Python version)**
-* or rewrite it in **clean English for international recruiters** 🚀
